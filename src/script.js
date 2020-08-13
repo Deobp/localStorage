@@ -1,16 +1,16 @@
 let data = document.getElementById('text');
 
-let arr = [];
-
 let ulList = document.getElementById('list');
 
 
 //add value to localStorage
 function submit() {
-    arr.push(data.value)
-    localStorage.setItem('data', arr)
+
+    localStorage.setItem(data.value, data.value);
+
     return false;
 }
+
 
 form.addEventListener('submit', submit)
 
@@ -23,12 +23,24 @@ clearL.addEventListener('click', clearLS)
 
 //add data to ul
 
+// function ul() {
+//     let json = JSON.stringify(localStorage);
+
+//     for (let key in json) {
+//         let item = document.createElement('li');
+//         item.value = 'yo'
+//         ulList.appendChild(item)
+//     }
+//}
+
 function ul() {
-    let list = document.createElement('li');
-    // create list item, add data, append to ulList
+
+    let item = document.createElement('li');
+    item.value = 'yo'
+    ulList.appendChild(item)
 }
+// create list item, add data, append to ulList
 
-
-form.addEventListener('submit', ul)
+ul()
     //problem to save previous result of localstorage to array
     // see if ul function can be called when submit function is called
