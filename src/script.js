@@ -2,16 +2,19 @@ let data = document.getElementById('text');
 
 let ulList = document.getElementById('list');
 
+let dataList = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+
 
 //add value to localStorage
-function submit() {
+function submit(event) {
+    dataList.push(data.value)
 
-    localStorage.setItem(data.value, data.value);
-
-    return false;
+    localStorage.setItem('items', JSON.stringify(dataList));
+    ul(data.value)
+    data.value = '';
+    event.preventDefault()
 }
-
-
+dataList.forEach((item) => ul(item))
 form.addEventListener('submit', submit)
 
 //clear localStorage
@@ -33,14 +36,15 @@ clearL.addEventListener('click', clearLS)
 //     }
 //}
 
-function ul() {
-
+function ul(itemInList) {
     let item = document.createElement('li');
-    item.value = 'yo'
+    item.textContent = itemInList
     ulList.appendChild(item)
 }
+
+
 // create list item, add data, append to ulList
 
-ul()
-    //problem to save previous result of localstorage to array
-    // see if ul function can be called when submit function is called
+
+//problem to save previous result of localstorage to array
+// see if ul function can be called when submit function is called

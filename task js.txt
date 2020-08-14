@@ -1,1 +1,12 @@
-create name for key on localStorage as number from length localStorage
+version with arr
+1. store inside localStorage value as JSON
+2. decode localStorage and put into ul
+
+
+3. rewrite functions,rename
+
+
+
+version without arr
+1. add data to localStorage value
+2. add value to ul
