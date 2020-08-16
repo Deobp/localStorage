@@ -3,19 +3,23 @@ let data = document.getElementById("text");
 let ulList = document.getElementById("list");
 
 let dataList = localStorage.getItem("items") ?
-    JSON.parse(localStorage.getItem("items")) :
-    [];
 
-//add value to localStorage
+    if (localStorage.length > 1) {
+        for (let i = 1; i <= localStorage.length; i++) {
+            ul(localStorage.key(i));
+        }
+    }
+
+    //add value to localStorage
 function submit(event) {
-    dataList.push(data.value);
 
-    localStorage.setItem("items", JSON.stringify(dataList));
-    ul(data.value);
-    data.value = "";
+
+    localStorage.setItem(`${localStorage.length+1}`, data.value);
+    ul(localStorage.key(localStorage.length))
     event.preventDefault();
 }
-dataList.forEach((item) => ul(item));
+
+
 form.addEventListener("submit", submit);
 
 //clear localStorage
