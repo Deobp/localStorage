@@ -2,23 +2,23 @@ let data = document.getElementById("text");
 
 let ulList = document.getElementById("list");
 
-let dataList = localStorage.getItem("items") ?
+let dataList = localStorage.getItem("items");
 
-    if (localStorage.length > 1) {
-        for (let i = 1; i <= localStorage.length; i++) {
-            ul(localStorage.key(i));
-        }
+if (localStorage.length > 0) {
+    for (let i = 1; i <= localStorage.length; i++) {
+        ul(localStorage.getItem(i));
     }
-
-    //add value to localStorage
-function submit(event) {
-
-
-    localStorage.setItem(`${localStorage.length+1}`, data.value);
-    ul(localStorage.key(localStorage.length))
-    event.preventDefault();
 }
 
+//add value to localStorage
+function submit(event) {
+    if (data.value.length > 0) {
+        localStorage.setItem(`${localStorage.length + 1}`, data.value);
+        ul(data.value);
+        data.value = "";
+        event.preventDefault();
+    }
+}
 
 form.addEventListener("submit", submit);
 
@@ -28,7 +28,6 @@ function clearLS() {
 }
 
 clearL.addEventListener("click", clearLS);
-
 
 //add localStorage data to ul
 function ul(itemInList) {
