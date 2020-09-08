@@ -6,4 +6,4 @@ function submit() {
     localStorage.setItem('text', data.value)
 }
 
-locaStorage.addEventListener('submit', submit)
+form.addEventListener('submit', submit)
