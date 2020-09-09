@@ -11,7 +11,7 @@ if (localStorage.length > 0) {
 }
 
 //add value to localStorage
-function submit(event) {
+function dataToLs(event) {
     if (data.value.length > 0) {
         localStorage.setItem(`${localStorage.length + 1}`, data.value);
         ul(data.value);
@@ -20,7 +20,7 @@ function submit(event) {
     }
 }
 
-form.addEventListener("submit", submit);
+form.addEventListener("submit", dataToLs);
 
 //clear localStorage
 function clearLS() {
