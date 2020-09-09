@@ -7,7 +7,7 @@ let dataList = localStorage.getItem("items") ?
     [];
 
 //add value to localStorage
-function submit(event) {
+function dataToLs(event) {
     dataList.push(data.value);
 
     localStorage.setItem("items", JSON.stringify(dataList));
@@ -16,7 +16,7 @@ function submit(event) {
     event.preventDefault();
 }
 dataList.forEach((item) => ul(item));
-form.addEventListener("submit", submit);
+form.addEventListener("submit", dataToLs);
 
 //clear localStorage
 function clearLS() {
