@@ -1,9 +1,9 @@
 let clearButton = document.getElementById('clearLS');
 let data = document.getElementById('text');
-let b = document.getElementById('button')
+let lsButton = document.getElementById('button');
 
 function submit() {
     localStorage.setItem('text', data.value)
 }
 
-form.addEventListener('submit', submit)
+form.addEventListener('submit', submit);
